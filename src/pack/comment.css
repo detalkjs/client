@@ -200,7 +200,7 @@
 
 .detalk-container .mr-cmt .cmt-main .cmt-data {
 	flex: 1;
-	display: flex;
+	/* display: flex; */
 	flex-direction: row;
 	justify-content: space-between;
     user-select: none;

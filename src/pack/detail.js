@@ -16,7 +16,8 @@ export default function gen_detail(count, list, options) {
                         </div>
                         <div class="cmt-main" style="display: inline;">
                             <div class="cmt-data">
-                                <span><strong>${j.nickname}</strong> · <span class="cmt_date">${dayjs(j.timestamp).format("YYYY-MM-DD HH:mm")}</span></span>
+                                <span style="margin-right:1rem;"><strong>${j.nickname}</strong> · <span class="cmt_date">${dayjs(j.timestamp).format("YYYY-MM-DD HH:mm")}</span></span>
+                                <span class="hover_show" onclick="detalk.reply('${list[i].rpid}', '${list[i].nickname}')">回复</span>
                                 <span class="hover_show" onclick="detalk.delete('${list[i].rpid}')">删除</span>
                             </div>
                             <div class="cmt-content">
@@ -28,13 +29,14 @@ export default function gen_detail(count, list, options) {
             }
         }
         list_content += `
-            <div class="mr-cmt" onclick="detalk.reply('${list[i].rpid}', '${list[i].nickname}')">
+            <div class="mr-cmt">
                 <div class="avatar">
                     <img src="${"https://cravatar.cn/avatar/"+list[i].email+"?d=mp" || "https://cravatar.cn/avatar/?d=mp"}" class="avatar-img">
                 </div>
                 <div class="cmt-main">
                     <div class="cmt-data">
-                        <span><strong><a href="${list[i].url || "#"}" target="_blank" style="color: unset;text-decoration:none;">${list[i].nickname}</a></strong> · <span class="cmt_date">${dayjs(list[i].timestamp).format("YYYY-MM-DD HH:mm")}</span></span>
+                        <span style="margin-right:1rem;"><strong><a href="${list[i].url || "#"}" target="_blank" style="color: unset;text-decoration:none;">${list[i].nickname}</a></strong> · <span class="cmt_date">${dayjs(list[i].timestamp).format("YYYY-MM-DD HH:mm")}</span></span>
+                        <span class="hover_show" onclick="detalk.reply('${list[i].rpid}', '${list[i].nickname}')">回复</span>
                         <span class="hover_show" onclick="detalk.delete('${list[i].rpid}')">删除</span>
                     </div>
                     <div class="cmt-content">
