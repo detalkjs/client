@@ -1,7 +1,7 @@
 export default `
 <div class="input-data">
     <div class="avatar">
-        <img src="https://cravatar.cn/avatar/45ead422ade450468bc1d3c8fb543a4?d=mp" class="avatar-img">
+        <img src="https://cravatar.cn/avatar/?d=mp" class="avatar-img" id="_detalk_myavatar">
     </div>
     <div class="input-area">
         <div class="inline-input">

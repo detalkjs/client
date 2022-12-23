@@ -2,6 +2,7 @@ import comment from './pack/comment.js';
 import './pack/comment.css';
 import load from './load.js';
 import getUUID from './lib/getUUID.js';
+import _id_s from './lib/dom.js';
 export default async function init(options = {}) {
     // init detalk
     if (!options.url) {
@@ -34,9 +35,9 @@ export default async function init(options = {}) {
     if (!localStorage.getItem("DETALK_AUTH")) {
         localStorage.setItem("DETALK_AUTH", getUUID());
     }
-    document.getElementById("detalk_input_nickname").value = localStorage.getItem("DETALK_NICKNAME") || "";
-    document.getElementById("detalk_input_email").value = localStorage.getItem("DETALK_EMAIL") || "";
-    document.getElementById("detalk_input_link").value = localStorage.getItem("DETALK_LINK") || "";
+    _id_s("detalk_input_nickname").value = localStorage.getItem("DETALK_NICKNAME") || "";
+    _id_s("detalk_input_email").value = localStorage.getItem("DETALK_EMAIL") || "";
+    _id_s("detalk_input_link").value = localStorage.getItem("DETALK_LINK") || "";
     return true;
 }
 

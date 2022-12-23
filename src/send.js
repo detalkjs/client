@@ -1,9 +1,9 @@
 import load from './load.js';
-
+import _id_s from './lib/dom.js';
 export default async function send(options, rpid) {
-    document.getElementById("_detalk_submit").disabled = true;
-    document.getElementById("_detalk_submit").classList.add("disabled");
-    document.getElementById("_detalk_submit").classList.remove("enabled");
+    _id_s("_detalk_submit").disabled = true;
+    _id_s("_detalk_submit").classList.add("disabled");
+    _id_s("_detalk_submit").classList.remove("enabled");
     if (!options) {
         options = window.DETALK_INIT;
     }
@@ -11,10 +11,10 @@ export default async function send(options, rpid) {
     let el = document.querySelector(options.el);
     let path = options.path;
 
-    let nickname = document.getElementById("detalk_input_nickname").value;
-    let email = document.getElementById("detalk_input_email").value;
-    let link = document.getElementById("detalk_input_link").value;
-    let content = document.getElementById("detalk_input_content").value;
+    let nickname = _id_s("detalk_input_nickname").value;
+    let email = _id_s("detalk_input_email").value;
+    let link = _id_s("detalk_input_link").value;
+    let content = _id_s("detalk_input_content").value;
 
     if (!nickname || !email || !content || nickname.length >= 15 || content.length >= 500 || email.length >= 50 || link.length >= 100) {
         return false;
@@ -49,15 +49,15 @@ export default async function send(options, rpid) {
         alert(resp.message);
     }
 
-    document.getElementById("_detalk_submit").disabled = false;
-    document.getElementById("_detalk_submit").classList.remove("disabled");
-    document.getElementById("_detalk_submit").classList.add("enabled");
+    _id_s("_detalk_submit").disabled = false;
+    _id_s("_detalk_submit").classList.remove("disabled");
+    _id_s("_detalk_submit").classList.add("enabled");
 
     if (rpid && resp.success) {
-        document.getElementById("detalk_input_content").value = "";
-        document.getElementById("_detalk_submit").setAttribute("onclick", `detalk.send(null)`);
-        document.getElementById("_detalk_submit").innerText = "发送";
-        document.getElementById("_detalk_preview").innerText = "预览";
-        document.getElementById("_detalk_preview").setAttribute("onclick", `detalk.preview()`);
+        _id_s("detalk_input_content").value = "";
+        _id_s("_detalk_submit").setAttribute("onclick", `detalk.send(null)`);
+        _id_s("_detalk_submit").innerText = "发送";
+        _id_s("_detalk_preview").innerText = "预览";
+        _id_s("_detalk_preview").setAttribute("onclick", `detalk.preview()`);
     }
 }

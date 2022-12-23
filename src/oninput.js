@@ -1,6 +1,8 @@
+import md5 from 'js-md5';
+import _id_s from './lib/dom.js';
 export default function oninput(el, type) {
     if (type == 'content') {
-        document.getElementById("_detalk_word_limit").innerText = el.value.length;
+        _id_s("_detalk_word_limit").innerText = el.value.length;
         if (el.value.length > 0 && el.value.length < 500) {
             el.classList.remove("border_error");
             window.TEMP_CONTENT = true;
@@ -9,7 +11,7 @@ export default function oninput(el, type) {
         }
     }
     if (type == 'nickname') {
-        document.getElementById("_detalk_word_limit").innerText = el.value.length;
+        _id_s("_detalk_word_limit").innerText = el.value.length;
         if (el.value.length > 0 && el.value.length < 15) {
             el.classList.remove("border_error");
             window.TEMP_NICKNAME = true;
@@ -23,6 +25,7 @@ export default function oninput(el, type) {
         } else {
             el.classList.remove("border_error");
             window.TEMP_EMAIL = true;
+            _id_s("_detalk_myavatar").src = `https://cravatar.cn/avatar/${md5(el.value)}?d=mp`;
         }
     }
     if (type == 'link') {
@@ -32,11 +35,11 @@ export default function oninput(el, type) {
             el.classList.remove("border_error");
         }
     }
-    if (window.TEMP_NICKNAME && window.TEMP_EMAIL && window.TEMP_CONTENT) {
-        document.getElementById("_detalk_submit").classList.remove("disabled");
-        document.getElementById("_detalk_submit").classList.add("enabled");
+    if ((window.TEMP_NICKNAME || _id_s("detalk_input_nickname")) && (window.TEMP_EMAIL || _id_s("detalk_input_email")) && (window.TEMP_CONTENT || _id_s("detalk_input_content"))) {
+        _id_s("_detalk_submit").classList.remove("disabled");
+        _id_s("_detalk_submit").classList.add("enabled");
     } else {
-        document.getElementById("_detalk_submit").classList.remove("enabled");
-        document.getElementById("_detalk_submit").classList.add("disabled");
+        _id_s("_detalk_submit").classList.remove("enabled");
+        _id_s("_detalk_submit").classList.add("disabled");
     }
 }

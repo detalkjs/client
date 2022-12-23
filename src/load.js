@@ -1,8 +1,9 @@
 import gen_detail from './pack/detail.js';
+import _id_s from './lib/dom.js';
 // mode = 1: 倒序; mode = 0: 正序.
 export default async function load(url, path, mode = 1) {
-    document.getElementById("_detalk_detail").classList.add("_detalk_loading_container");
-    document.getElementById("_detalk_detail").innerHTML =  `<svg width="30px" height="30px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+    _id_s("_detalk_detail").classList.add("_detalk_loading_container");
+    _id_s("_detalk_detail").innerHTML =  `<svg width="30px" height="30px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
     <g>
         <animateTransform attributeName="transform" type="rotate" values="0 33 33;270 33 33" begin="0s" dur="1.4s" fill="freeze" repeatCount="indefinite"></animateTransform>
         <circle fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30" stroke-dasharray="187" stroke-dashoffset="610">
@@ -51,6 +52,6 @@ export default async function load(url, path, mode = 1) {
         }
     }
 
-    document.getElementById("_detalk_detail").innerHTML = gen_detail(count, render_list, {mode,url,path});
-    document.getElementById("_detalk_detail").classList.remove("_detalk_loading_container");
+    _id_s("_detalk_detail").innerHTML = gen_detail(count, render_list, {mode,url,path});
+    _id_s("_detalk_detail").classList.remove("_detalk_loading_container");
 }
