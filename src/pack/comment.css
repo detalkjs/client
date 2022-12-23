@@ -228,3 +228,7 @@
 .detalk-container .cmt_date {
 	opacity: 0.65;
 }
+.detalk-container hr {
+	margin-top: 20px;
+    margin-bottom: 20px;
+}
