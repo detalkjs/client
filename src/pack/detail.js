@@ -48,7 +48,7 @@ export default function gen_detail(count, list, options) {
     }
     return `
     <div class="comment-title">
-        <h3>共 ${count} 条评论<span class="filter" onclick="detalk.load('${options.url}','${options.path}',${options.mode ? 0 : 1});">${options.mode ? "正序" : "倒叙"}</span></h3>
+        <h3>共 ${count} 条评论<span class="filter" onclick="detalk.load('${options.url}','${options.path}',${options.mode ? 0 : 1});">${options.mode ? "正序" : "倒序"}</span></h3>
     </div>
     <div class="comment-list">
         ${list_content}
