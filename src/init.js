@@ -25,6 +25,10 @@ export default async function init(options = {}) {
 
     load(url, path);
 
+
+    if (!localStorage.getItem("DETALK_AUTH")) {
+        
+    }
     return true;
 }
 

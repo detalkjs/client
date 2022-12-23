@@ -24,6 +24,13 @@ export default async function load(url, path) {
         if (!list[i].deleted) {
             count++;
             render_list.push(list[i]);
+            if (list[i].replies) {
+                for (let j in list[i].replies) {
+                    if (!list[i].replies[j].deleted) {
+                        count++;
+                    }
+                }
+            }
         }
     }
 
