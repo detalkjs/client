@@ -34,7 +34,7 @@ export default function gen_detail(count, list, options) {
                 </div>
                 <div class="cmt-main">
                     <div class="cmt-data">
-                        <span><strong>${list[i].nickname}</strong> · <span class="cmt_date">${dayjs(list[i].timestamp).format("YYYY-MM-DD HH:mm")}</span></span>
+                        <span><strong><a href="${list[i].url || "#"} target="_blank" style="color: unset;text-decoration:none;">${list[i].nickname}</a></strong> · <span class="cmt_date">${dayjs(list[i].timestamp).format("YYYY-MM-DD HH:mm")}</span></span>
                         <span class="hover_show" onclick="detalk.delete('${list[i].rpid}')">删除</span>
                     </div>
                     <div class="cmt-content">
