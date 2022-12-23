@@ -184,6 +184,13 @@
     background: rgba(0, 0, 0, 0.05);
     cursor: pointer;
 }
+.detalk-container .hover_show {
+	opacity: 0;
+	transition: all .3s;
+}
+.detalk-container .mr-cmt:hover .hover_show {
+    opacity: 0.6;
+}
 
 .detalk-container .mr-cmt .cmt-main {
 	margin-left: 1rem;

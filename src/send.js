@@ -25,6 +25,7 @@ export default async function send(options, rpid) {
     if (!link.startsWith("#ReplyTo:")) {
         localStorage.setItem("DETALK_LINK", link);
     }
+    let auth = localStorage.getItem("DETALK_AUTH");
 
     let resp = await fetch(url + '/_api/comment', {
         method: "PUT",
@@ -38,6 +39,7 @@ export default async function send(options, rpid) {
             url: link,
             replyTo: rpid || null,
             content,
+            auth,
         })
     }).then(res => res.json());
 

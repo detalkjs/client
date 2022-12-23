@@ -1,8 +1,8 @@
 import comment from './pack/comment.js';
 import './pack/comment.css';
 import load from './load.js';
+import getUUID from './lib/getUUID.js';
 export default async function init(options = {}) {
-    window.DETALK_INIT = options;
     // init detalk
     if (!options.url) {
         throw new Error('Backend URL is required!');
@@ -17,6 +17,11 @@ export default async function init(options = {}) {
         path = window.DETALK_PATH || window.location.pathname;
     }
 
+    window.DETALK_INIT = {
+        url,
+        el: options.el,
+        path,
+    };
 
     el.innerHTML = comment;
     el.classList.add('detalk-container');
@@ -27,8 +32,11 @@ export default async function init(options = {}) {
 
 
     if (!localStorage.getItem("DETALK_AUTH")) {
-        
+        localStorage.setItem("DETALK_AUTH", getUUID());
     }
+    document.getElementById("detalk_input_nickname").value = localStorage.getItem("DETALK_NICKNAME") || "";
+    document.getElementById("detalk_input_email").value = localStorage.getItem("DETALK_EMAIL") || "";
+    document.getElementById("detalk_input_link").value = localStorage.getItem("DETALK_LINK") || "";
     return true;
 }
 

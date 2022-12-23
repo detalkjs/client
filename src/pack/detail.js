@@ -15,6 +15,7 @@ export default function gen_detail(count, list) {
                         <div class="cmt-main" style="display: inline;">
                             <div class="cmt-data">
                                 <span><strong>${j.nickname}</strong></span>
+                                <span class="hover_show" onclick="detalk.delete('${list[i].rpid}')">删除</span>
                             </div>
                             <div class="cmt-content">
                                 ${j.content}
@@ -27,11 +28,12 @@ export default function gen_detail(count, list) {
         list_content += `
             <div class="mr-cmt" onclick="detalk.reply('${list[i].rpid}', '${list[i].nickname}')">
                 <div class="avatar">
-                    <img src="${list[i].avatar || "https://cravatar.cn/avatar/?d=mp"}" class="avatar-img">
+                    <img src="${"https://cravatar.cn/avatar/"+list[i].email+"?d=mp" || "https://cravatar.cn/avatar/?d=mp"}" class="avatar-img">
                 </div>
                 <div class="cmt-main">
                     <div class="cmt-data">
                         <span><strong>${list[i].nickname}</strong></span>
+                        <span class="hover_show" onclick="detalk.delete('${list[i].rpid}')">删除</span>
                     </div>
                     <div class="cmt-content">
                         ${list[i].content}
