@@ -1,0 +1,42 @@
+name: NodeJS with Webpack
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  release:
+    types:
+      - published # 推送新版本号
+
+  workflow_dispatch: # 手动触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Build
+      run: |
+        npm install --save
+        npm run build
+        
+    - name: GitHub Push
+      run: |
+        git config --global user.email icolabot@e.yfun.top
+        git config --global user.name iColaBot
+        git add .
+        git commit -m ":zap: 成功完成构建"
+        git push -u origin master
+
