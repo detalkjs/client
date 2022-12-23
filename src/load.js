@@ -1,5 +1,6 @@
 import gen_detail from './pack/detail.js';
-export default async function load(url, path) {
+// mode = 1: 倒序; mode = 0: 正序.
+export default async function load(url, path, mode = 1) {
     document.getElementById("_detalk_detail").classList.add("_detalk_loading_container");
     document.getElementById("_detalk_detail").innerHTML =  `<svg width="30px" height="30px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
     <g>
@@ -20,20 +21,36 @@ export default async function load(url, path) {
 
     let count = 0;
     let render_list = [];
-    for (let i in list) {
-        if (!list[i].deleted) {
-            count++;
-            render_list.push(list[i]);
-            if (list[i].replies) {
-                for (let j in list[i].replies) {
-                    if (!list[i].replies[j].deleted) {
-                        count++;
+    if (!mode) {
+        for (let i in list) {
+            if (!list[i].deleted) {
+                count++;
+                render_list.push(list[i]);
+                if (list[i].replies) {
+                    for (let j in list[i].replies) {
+                        if (!list[i].replies[j].deleted) {
+                            count++;
+                        }
+                    }
+                }
+            }
+        }
+    } else {
+        for (let i = list.length - 1; i >= 0; i--) {
+            if (!list[i].deleted) {
+                count++;
+                render_list.push(list[i]);
+                if (list[i].replies) {
+                    for (let j in list[i].replies) {
+                        if (!list[i].replies[j].deleted) {
+                            count++;
+                        }
                     }
                 }
             }
         }
     }
 
-    document.getElementById("_detalk_detail").innerHTML = gen_detail(count, render_list);
+    document.getElementById("_detalk_detail").innerHTML = gen_detail(count, render_list, {mode,url,path});
     document.getElementById("_detalk_detail").classList.remove("_detalk_loading_container");
 }
