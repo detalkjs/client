@@ -27,7 +27,7 @@ export default function gen_detail(count, list, options) {
                         <div class="cmt-main" style="display: inline;">
                             <div class="cmt-data">
                                 <span style="margin-right:1rem;"><strong>${j.nickname}</strong> · <span class="cmt_date">${dayjs(j.timestamp)}</span></span>
-                                <span class="hover_show" onclick="detalk.reply('${list[i].rpid}', '${list[i].nickname}')">回复</span>
+                                <span class="hover_show" onclick="detalk.reply('${list[i].rpid}', '${j.nickname}')">回复</span>
                                 ${deletBtn}
                             </div>
                             <div class="cmt-content">
