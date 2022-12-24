@@ -38,8 +38,10 @@ export default function oninput(el, type) {
     if ((window.TEMP_NICKNAME || _id_s("detalk_input_nickname")) && (window.TEMP_EMAIL || _id_s("detalk_input_email")) && (window.TEMP_CONTENT || _id_s("detalk_input_content"))) {
         _id_s("_detalk_submit").classList.remove("disabled");
         _id_s("_detalk_submit").classList.add("enabled");
+        _id_s("_detalk_submit").disabled = false;
     } else {
         _id_s("_detalk_submit").classList.remove("enabled");
         _id_s("_detalk_submit").classList.add("disabled");
+        _id_s("_detalk_submit").disabled = true;
     }
 }

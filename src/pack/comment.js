@@ -18,7 +18,7 @@ export default `
     <div class="action-btn">
         <p class="word-limit"><span id="_detalk_word_limit">0</span> / 500</p>
         <button class="sec-btn cm-btn" id="_detalk_preview">预览</button>
-        <button onclick="detalk.send();" class="fst-btn cm-btn disabled" id="_detalk_submit">发送</button>
+        <button onclick="detalk.send();" class="fst-btn cm-btn disabled" id="_detalk_submit" disabled>发送</button>
     </div>
 </div>
 <div class="comment-container _detalk_loading_container" id="_detalk_detail"></div>

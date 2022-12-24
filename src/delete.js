@@ -10,6 +10,13 @@ export default async function _delete(rpid, auth = localStorage.getItem("DETALK_
     }).then(res => res.json());
     if (resp.success) {
         // alert(resp.message);
+        JSON.parse(localStorage.getItem("DETALK_CAN_DELETE") || "[]").forEach(element => {
+            if (element == rpid) {
+                let canDelete = JSON.parse(localStorage.getItem("DETALK_CAN_DELETE") || "[]");
+                canDelete.splice(canDelete.indexOf(rpid), 1);
+                localStorage.setItem("DETALK_CAN_DELETE", JSON.stringify(canDelete));
+            }
+        });
         load(url, path);
     } else {
         alert(resp.error);
