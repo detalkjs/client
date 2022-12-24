@@ -18,12 +18,8 @@ export default async function init(options = {}) {
         path = window.DETALK_PATH || window.location.pathname;
     }
 
-    window.DETALK_INIT = {
-        url,
-        el: options.el,
-        path,
-        ...options,
-    };
+    window.DETALK_INIT = options;
+    DETALK_INIT.url = url;
 
     el.innerHTML = comment;
     el.classList.add('detalk-container');
