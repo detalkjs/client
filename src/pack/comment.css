@@ -304,3 +304,11 @@
 	font-size: 0.9rem;
 	opacity: 0.9;
 }
+.detalk-container .content-preview {
+	background: rgba(0,0,0,0.05);
+    border-color: rgba(144, 147, 153, 0.31);
+    border: 1px solid rgba(144,147,153,0.31);
+	padding: 0 10px;
+	border-radius: 4px;
+	display: none;
+}

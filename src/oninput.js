@@ -1,10 +1,12 @@
 import md5 from 'js-md5';
 import _id_s from './lib/dom.js';
+import preview from './preview.js';
 export default function oninput(el, type) {
     if (type == 'content') {
         _id_s("_detalk_word_limit").innerText = el.value.length;
         if (el.value.length > 0 && el.value.length < 500) {
             el.classList.remove("border_error");
+            if (DETALK_INIT.previewOnInput) preview(true);
             window.TEMP_CONTENT = true;
         } else {
             el.classList.add("border_error");

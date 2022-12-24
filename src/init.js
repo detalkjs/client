@@ -22,6 +22,7 @@ export default async function init(options = {}) {
         url,
         el: options.el,
         path,
+        ...options,
     };
 
     el.innerHTML = comment;

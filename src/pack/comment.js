@@ -18,12 +18,13 @@ export default `
         <div class="comment-text">
             <textarea oninput="detalk.oninput(this, 'content')" autocomplete="off" placeholder="" maxlength="500" style="min-height: 75px; height: 75px;" id="detalk_input_content"></textarea>
         </div>
+        <div class="comment-text content-preview cmt-content" id="detalk_content_preview"></div>
     </div>
 </div>
 <div class="action-btn-group">
     <div class="action-btn">
         <p class="word-limit"><span id="_detalk_word_limit">0</span> / 500</p>
-        <button class="sec-btn cm-btn" id="_detalk_preview">预览</button>
+        <button class="sec-btn cm-btn" id="_detalk_preview" onclick="detalk.preview();">预览</button>
         <button onclick="detalk.send();" class="fst-btn cm-btn disabled" id="_detalk_submit" disabled>发送</button>
     </div>
 </div>
