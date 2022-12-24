@@ -21,13 +21,23 @@
     <button onclick="light();">Light</button>
     <button onclick="dark();">Dark</button>
     <div style="margin-top: 30px;" id="detalk"></div>
-    <div style="max-width: 500px; margin: 30px auto;padding: 3px 30px;" id="detalk"></div>
     <script src="../dist/detalk.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@4/marked.min.js"></script>
+    <link rel="stylesheet"
+        href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"></script>
     <script>
+        detalk.parse = marked.parse
         detalk.init({
             url: "https://detalk.deta.dev/",
             el: "#detalk",
-            path: "/"
+            path: "/",
+            previewOnInput: true,
+            onCommentLoaded: function () {
+                document.querySelectorAll('#detalk pre code').forEach((el) => {
+                    hljs.highlightElement(el);
+                });
+            },
         });
         function light() {
             document.body.style.backgroundColor = "#fff";
