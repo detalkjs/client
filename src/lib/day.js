@@ -12,31 +12,28 @@ export default function dayjs(timestamp) {
 
     if (now.getMinutes() == minute && now.getHours() == hour && now.getDate() == day && now.getMonth()+1 == month && now.getFullYear() == year) {
         return "刚刚";
-    }
-    if (now.getMinutes() - minute < 60 && now.getHours() == hour  &&now.getDate() == day && now.getMonth()+1 == month && now.getFullYear() == year) {
+    } else if (now.getHours() == hour  && now.getDate() == day && now.getMonth()+1 == month && now.getFullYear() == year) {
         return `${now.getMinutes() - minute } 分钟前`;
-    }
-    if (now.getDate() == date && now.getMonth()+1 == month && now.getFullYear() == year) {
+    } else if (now.getDate() == day && now.getMonth()+1 == month && now.getFullYear() == year) {
         return `${now.getHours() - hour} 小时前`;
-    }
-    if (now.getMonth()+1 == month && now.getDate() - day < 14 && now.getFullYear() == year) {
+    } else if (now.getMonth()+1 == month && now.getDate() - day < 14 && now.getFullYear() == year) {
         return `${now.getDate() - day} 天前`;
+    } else {
+        if (month < 10) {
+            month = "0" + month;
+        }
+        if (day < 10) {
+            day = "0" + day;
+        }
+        if (hour < 10) {
+            hour = "0" + hour;
+        }
+        if (minute < 10) {
+            minute = "0" + minute;
+        }
+        if (second < 10) {
+            second = "0" + second;
+        }
+        return `${year}-${month}-${day} ${hour}:${minute}:${second}`;
     }
-
-    if (month < 10) {
-        month = "0" + month;
-    }
-    if (day < 10) {
-        day = "0" + day;
-    }
-    if (hour < 10) {
-        hour = "0" + hour;
-    }
-    if (minute < 10) {
-        minute = "0" + minute;
-    }
-    if (second < 10) {
-        second = "0" + second;
-    }
-    return `${year}-${month}-${day} ${hour}:${minute}:${second}`;
 }

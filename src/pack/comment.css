@@ -232,3 +232,49 @@
 	margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.detalk_copyright {
+	text-align: end;
+	opacity: 0.7;
+	font-size: 0.9rem;
+	margin-right: 0.4rem;
+	margin-top: 35px;
+}
+
+.detalk-container .cmt-content a, .detalk_copyright a {
+	color: rgba(64, 158, 255, 1);
+	text-decoration: none;
+	transition: all .3s;
+}
+
+.detalk-container .cmt-content a:hover, .detalk_copyright a:hover {
+	color: rgb(38, 134, 229);
+	text-decoration: underline;
+}
+
+.detalk-container .cmt-content h1 {
+	font-size: 1.8rem;
+}
+
+.detalk-container .cmt-content blockquote {
+	padding: 0 1em;
+    border-left: 0.25em solid #dfe2e5;
+	margin: 0;
+}
+
+.detalk-container .cmt-content code {
+	padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    color: currentColor;
+}
+.detalk-container .cmt-content pre {
+	padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+}

@@ -9,7 +9,7 @@ export default async function _delete(rpid, auth = localStorage.getItem("DETALK_
         method: "DELETE",
     }).then(res => res.json());
     if (resp.success) {
-        alert(resp.message);
+        // alert(resp.message);
         load(url, path);
     } else {
         alert(resp.error);

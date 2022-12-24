@@ -13,7 +13,6 @@ export default `
             <textarea oninput="detalk.oninput(this, 'content')" autocomplete="off" placeholder="" maxlength="500" style="min-height: 75px; height: 75px;" id="detalk_input_content"></textarea>
         </div>
     </div>
-
 </div>
 <div class="action-btn-group">
     <div class="action-btn">
@@ -22,7 +21,8 @@ export default `
         <button onclick="detalk.send();" class="fst-btn cm-btn disabled" id="_detalk_submit">发送</button>
     </div>
 </div>
-
-<div class="comment-container _detalk_loading_container" id="_detalk_detail">
+<div class="comment-container _detalk_loading_container" id="_detalk_detail"></div>
+<div class="detalk_copyright">
+    <p>Powered by <a href="https://github.com/oCoke/detalk" target="_blank">Detalk</a> & <a href="https://github.com/oCoke/detalk-static" target="_blank">Detalk Static</a>.</p>
 </div>
 `;
