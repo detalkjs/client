@@ -5,9 +5,15 @@ export default `
     </div>
     <div class="input-area">
         <div class="inline-input">
-            <input id="detalk_input_nickname" placeholder="昵称" type="text" class="mgr-2p" oninput="detalk.oninput(this, 'nickname')">
-            <input id="detalk_input_email" placeholder="邮箱" type="email" class="mgr-2p" oninput="detalk.oninput(this, 'email')">
-            <input id="detalk_input_link" placeholder="网址" type="url" oninput="detalk.oninput(this, 'link')">
+            <div class="input-label">
+                <label>昵称</label>
+                <input id="detalk_input_nickname" placeholder="必填" type="text" class="mgr-2p" oninput="detalk.oninput(this, 'nickname')"></div>
+            <div class="input-label">
+                <label>邮箱</label>
+                <input id="detalk_input_email" placeholder="必填" type="email" class="mgr-2p" oninput="detalk.oninput(this, 'email')"></div>
+            <div class="input-label">
+                <label>网址</label>
+                <input id="detalk_input_link" placeholder="选填 [http(s)://]" type="url" oninput="detalk.oninput(this, 'link')"></div>
         </div>
         <div class="comment-text">
             <textarea oninput="detalk.oninput(this, 'content')" autocomplete="off" placeholder="" maxlength="500" style="min-height: 75px; height: 75px;" id="detalk_input_content"></textarea>
