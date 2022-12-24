@@ -31,6 +31,7 @@ jobs:
       run: |
         npm install --save
         npm run build
+        npm run build@nocss
         
     - name: GitHub Push
       run: |
