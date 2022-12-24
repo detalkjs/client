@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import dayjs from '../lib/day.js';
 
 export default function gen_detail(count, list, options) {
     let list_content = "";
@@ -16,7 +16,7 @@ export default function gen_detail(count, list, options) {
                         </div>
                         <div class="cmt-main" style="display: inline;">
                             <div class="cmt-data">
-                                <span style="margin-right:1rem;"><strong>${j.nickname}</strong> · <span class="cmt_date">${dayjs(j.timestamp).format("YYYY-MM-DD HH:mm")}</span></span>
+                                <span style="margin-right:1rem;"><strong>${j.nickname}</strong> · <span class="cmt_date">${dayjs(j.timestamp)}</span></span>
                                 <span class="hover_show" onclick="detalk.reply('${list[i].rpid}', '${list[i].nickname}')">回复</span>
                                 <span class="hover_show" onclick="detalk.delete('${list[i].rpid}')">删除</span>
                             </div>
@@ -35,7 +35,7 @@ export default function gen_detail(count, list, options) {
                 </div>
                 <div class="cmt-main">
                     <div class="cmt-data">
-                        <span style="margin-right:1rem;"><strong><a href="${list[i].url || "#"}" target="_blank" style="color: unset;text-decoration:none;">${list[i].nickname}</a></strong> · <span class="cmt_date">${dayjs(list[i].timestamp).format("YYYY-MM-DD HH:mm")}</span></span>
+                        <span style="margin-right:1rem;"><strong><a href="${list[i].url || "#"}" target="_blank" style="color: unset;text-decoration:none;">${list[i].nickname}</a></strong> · <span class="cmt_date">${dayjs(list[i].timestamp)}</span></span>
                         <span class="hover_show" onclick="detalk.reply('${list[i].rpid}', '${list[i].nickname}')">回复</span>
                         <span class="hover_show" onclick="detalk.delete('${list[i].rpid}')">删除</span>
                     </div>

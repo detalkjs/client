@@ -4,7 +4,7 @@
   "description": "The fastest way to use detalk on your website.",
   "main": "dist/detalk.js",
   "scripts": {
-    "dev": "webpack --mode=development --watch",
+    "dev": "webpack --config webpack.dev.js --mode=development --watch",
     "build": "webpack --mode=production"
   },
   "keywords": [],
