@@ -45,6 +45,9 @@ export default async function send(options, rpid) {
 
     if (resp.success) {
         load(url, path);
+        let canDelete = JSON.parse(localStorage.getItem("DETALK_CAN_DELETE") || "[]");
+        canDelete.push(resp.rpid);
+        localStorage.setItem("DETALK_CAN_DELETE", JSON.stringify(canDelete));
     } else {
         alert(resp.message);
     }

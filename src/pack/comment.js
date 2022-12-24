@@ -23,6 +23,6 @@ export default `
 </div>
 <div class="comment-container _detalk_loading_container" id="_detalk_detail"></div>
 <div class="detalk_copyright">
-    <p>Powered by <a href="https://github.com/oCoke/detalk" target="_blank">Detalk</a> & <a href="https://github.com/oCoke/detalk-static" target="_blank">Detalk Static</a>.</p>
+    <p>Powered by <a href="https://github.com/oCoke/detalk" target="_blank">Detalk</a> & <a href="https://github.com/oCoke/detalk-static" target="_blank">Detalk Static</a></p>
 </div>
 `;
