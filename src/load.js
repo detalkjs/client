@@ -54,4 +54,8 @@ export default async function load(url, path, mode = 1) {
 
     _id_s("_detalk_detail").innerHTML = gen_detail(count, render_list, {mode,url,path});
     _id_s("_detalk_detail").classList.remove("_detalk_loading_container");
+
+    if (DETALK_INIT.onCommentLoaded) {
+        DETALK_INIT.onCommentLoaded();
+    }
 }
