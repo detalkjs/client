@@ -12,9 +12,15 @@
                 color: #fff;
             }
         }
+        body {
+            transition: all .3s;
+        }
     </style>
 </head>
-<body>
+<body style="max-width: 500px; margin: 30px auto;padding: 3px 30px;">
+    <button onclick="light();">Light</button>
+    <button onclick="dark();">Dark</button>
+    <div style="margin-top: 30px;" id="detalk"></div>
     <div style="max-width: 500px; margin: 30px auto;padding: 3px 30px;" id="detalk"></div>
     <script src="../dist/detalk.js"></script>
     <script>
@@ -23,6 +29,14 @@
             el: "#detalk",
             path: "/"
         });
+        function light() {
+            document.body.style.backgroundColor = "#fff";
+            document.body.style.color = "#000";
+        }
+        function dark() {
+            document.body.style.backgroundColor = "#1e1e1e";
+            document.body.style.color = "#fff";
+        }
     </script>
 </body>
 </html>

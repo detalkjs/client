@@ -266,18 +266,18 @@
 	padding: 0.2em 0.4em;
     margin: 0;
     font-size: 85%;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(0, 0, 0, 0.08);
     border-radius: 3px;
-    color: white;
+    color: currentColor;
 }
 .detalk-container .cmt-content pre {
 	padding: 16px;
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(0, 0, 0, 0.08);
     border-radius: 3px;
-	color: white;
+	color: currentColor;
 }
 .detalk-container .cmt-content pre code {
 	background-color: transparent;
