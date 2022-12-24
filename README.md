@@ -6,12 +6,31 @@
 
 ## 如何使用
 
+### 载入
+
 在浏览器中，通常，您需要引入我们提供的 JavaScript 文件。它会暴露 `window.detalk` 接口。
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@detalk/static@latest/dist/detalk.js"></script>
 <!-- 我们推荐您将 @latest 替换为所需的版本号 -->
 ```
+
+或者使用简短的链接：
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@detalk/static@latest"></script>
+<!-- 我们推荐您将 @latest 替换为所需的版本号 -->
+```
+
+当然，我们提供单独的 CSS 文件和 不含 CSS 的 JavaScript 构建：
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@detalk/static@latest/dist/detalk.css">
+<script src="https://cdn.jsdelivr.net/npm/@detalk/static@latest/dist/detalk-nocss.js"></script>
+<!-- 我们推荐您将 @latest 替换为所需的版本号 -->
+```
+
+### 初始化
 
 然后，您需要使用下方代码初始化：
 
@@ -23,6 +42,12 @@ detalk.init({
     url: "https://detalk.deta.dev/",
     // 当前页面的路径
     path: window.location.href,
+    // 是否开启实时预览
+    previewOnInput: false, // default is false
+    // 评论加载完成后
+    onCommentLoaded: function () {
+        // 此处可为代码高亮等插件
+    },
 });
 ```
 
