@@ -38,7 +38,7 @@ export default async function load(url, path, mode = 1) {
         }
     } else {
         for (let i = list.length - 1; i >= 0; i--) {
-            if (!list[i].deleted) {
+            if (!list[i].deleted && !list[i].hide) {
                 count++;
                 render_list.push(list[i]);
                 if (list[i].replies) {
