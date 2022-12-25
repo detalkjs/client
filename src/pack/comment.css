@@ -283,6 +283,7 @@
 }
 .detalk-container .cmt-content pre code {
 	background-color: transparent;
+	padding: 0;
 }
 .detalk-container {
 	transition: all .3s;
