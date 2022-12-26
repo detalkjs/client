@@ -324,3 +324,16 @@
 .detalk-container .input-oneline .input-label:not(:last-child) {
 	margin-right: 1%;
 }
+.detalk-container .load-more {
+	padding: 8px 10px 10px 10px;
+    width: 5rem;
+    margin: 20px auto;
+    cursor: pointer;
+    /* text-align: center; */
+    background-color: rgba(0, 0, 0, 0.05);
+	border-radius: 6px;
+	height: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

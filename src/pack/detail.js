@@ -6,7 +6,7 @@ function inarray(arr, val) {
     }
     return false;
 }
-export default function gen_detail(count, list, options) {
+export default function gen_detail(count, list, options, noindex) {
     let list_content = "";
     for (let i in list) {
         let reply_content = "";
@@ -65,10 +65,14 @@ export default function gen_detail(count, list, options) {
     if (list == []) {
         list_content = `<h3 style="text-align: center;opacity: 0.8;">暂无评论</h3>`;
     }
-    return `
-    <div class="comment-title">
+    let IndexContent = `<div class="comment-title">
         <h3>共 ${count} 条评论<span class="filter" onclick="detalk.load('${options.url}','${options.path}',${options.mode ? 0 : 1});">${options.mode ? "正序" : "倒序"}</span></h3>
-    </div>
+    </div>`;
+    if (noindex) {
+        IndexContent = "";
+    }
+    return `
+    ${IndexContent}
     <div class="comment-list">
         ${list_content}
     </div>
