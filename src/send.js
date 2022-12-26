@@ -16,7 +16,7 @@ export default async function send(options, rpid) {
     let link = _id_s("detalk_input_link").value;
     let content = _id_s("detalk_input_content").value;
 
-    if (!nickname || !email || !content || nickname.length >= 15 || content.length >= 500 || email.length >= 50 || link.length >= 100) {
+    if (!nickname || !email || !content || nickname.length >= 15 || content.length >= 500 || email.length >= 50 || link.length >= 100 || (!link.test(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/) && !link.startsWith("#ReplyTo:"))) {
         alert("输入内容不符合要求");
         return false;
     }

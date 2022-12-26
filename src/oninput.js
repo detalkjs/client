@@ -30,7 +30,7 @@ export default function oninput(el, type) {
         }
     }
     if (type == 'link') {
-        if (el.value.length > 100) {
+        if (el.value.length > 100 || (!el.value.test(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/) && !el.value.startsWith("#ReplyTo:"))) {
             el.classList.add("border_error");
         } else {
             el.classList.remove("border_error");
