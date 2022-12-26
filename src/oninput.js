@@ -13,7 +13,6 @@ export default function oninput(el, type) {
         }
     }
     if (type == 'nickname') {
-        _id_s("_detalk_word_limit").innerText = el.value.length;
         if (el.value.length > 0 && el.value.length < 15) {
             el.classList.remove("border_error");
             window.TEMP_NICKNAME = true;
