@@ -30,13 +30,13 @@ export default function oninput(el, type) {
         }
     }
     if (type == 'link') {
-        if (el.value.length > 100 || (!el.value.test(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/) && !el.value.startsWith("#ReplyTo:"))) {
+        if (el.value.length > 100 || (el.value && !el.value.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/) && !el.value.startsWith("#ReplyTo:"))) {
             el.classList.add("border_error");
         } else {
             el.classList.remove("border_error");
         }
     }
-    if ((window.TEMP_NICKNAME || _id_s("detalk_input_nickname").value) && (window.TEMP_EMAIL || _id_s("detalk_input_email").value) && (window.TEMP_CONTENT || _id_s("detalk_input_content").value)) {
+    if ((window.TEMP_NICKNAME || _id_s("detalk_input_nickname").value) && (window.TEMP_EMAIL || _id_s("detalk_input_email").value) && (window.TEMP_CONTENT || _id_s("detalk_input_content").value) && !_id_s("detalk_input_link").classList.contains("border_error") && !_id_s("detalk_input_nickname").classList.contains("border_error") && !_id_s("detalk_input_email").classList.contains("border_error") && !_id_s("detalk_input_content").classList.contains("border_error")) {
         _id_s("_detalk_submit").classList.remove("disabled");
         _id_s("_detalk_submit").classList.add("enabled");
         _id_s("_detalk_submit").disabled = false;
