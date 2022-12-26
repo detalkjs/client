@@ -11,7 +11,7 @@ export default function gen_detail(count, list, options, noindex) {
     for (let i in list) {
         let reply_content = "";
 
-        if (list[i].replies) {
+        if (list[i] && list[i].replies) {
             reply_content += "<hr/>";
             for (let j of list[i].replies) {
                 if (!j.deleted) {
@@ -39,7 +39,7 @@ export default function gen_detail(count, list, options, noindex) {
             }
         }
         let deletBtn = "";
-        if (inarray(JSON.parse(localStorage.getItem("DETALK_CAN_DELETE") || "[]"), list[i].rpid)) {
+        if (list[i] && list[i].rpid && inarray(JSON.parse(localStorage.getItem("DETALK_CAN_DELETE") || "[]"), list[i].rpid)) {
             deletBtn = `<span class="hover_show" onclick="detalk.delete('${list[i].rpid}')">删除</span>`;
         }
         list_content += `
