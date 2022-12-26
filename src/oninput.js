@@ -36,7 +36,7 @@ export default function oninput(el, type) {
             el.classList.remove("border_error");
         }
     }
-    if ((window.TEMP_NICKNAME || _id_s("detalk_input_nickname")) && (window.TEMP_EMAIL || _id_s("detalk_input_email")) && (window.TEMP_CONTENT || _id_s("detalk_input_content"))) {
+    if ((window.TEMP_NICKNAME || _id_s("detalk_input_nickname").value) && (window.TEMP_EMAIL || _id_s("detalk_input_email").value) && (window.TEMP_CONTENT || _id_s("detalk_input_content").value)) {
         _id_s("_detalk_submit").classList.remove("disabled");
         _id_s("_detalk_submit").classList.add("enabled");
         _id_s("_detalk_submit").disabled = false;
