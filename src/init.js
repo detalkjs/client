@@ -3,6 +3,7 @@ import './pack/comment.css';
 import load from './load.js';
 import getUUID from './lib/getUUID.js';
 import _id_s from './lib/dom.js';
+import md5 from 'js-md5';
 export default async function init(options = {}) {
     // init detalk
     if (!options.url) {
@@ -37,6 +38,10 @@ export default async function init(options = {}) {
     _id_s("detalk_input_nickname").value = localStorage.getItem("DETALK_NICKNAME") || "";
     _id_s("detalk_input_email").value = localStorage.getItem("DETALK_EMAIL") || "";
     _id_s("detalk_input_link").value = localStorage.getItem("DETALK_LINK") || "";
+
+    if (_id_s("detalk_input_email").value) {
+        _id_s("_detalk_myavatar").src = `https://cravatar.cn/avatar/${md5(_id_s("detalk_input_email").value)}?d=mp`;
+    }
 
 
     if (document.querySelector(options.el + " .inline-input").clientWidth >= 540) {
