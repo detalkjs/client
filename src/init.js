@@ -8,6 +8,8 @@ export default async function init(options = {}) {
     if (!options.url) {
         throw new Error('Backend URL is required!');
     }
+    
+
     let url = new URL(options.url).protocol + '//' + new URL(options.url).host;
     let el = document.querySelector(options.el);
     let path = options.path;
@@ -35,6 +37,21 @@ export default async function init(options = {}) {
     _id_s("detalk_input_nickname").value = localStorage.getItem("DETALK_NICKNAME") || "";
     _id_s("detalk_input_email").value = localStorage.getItem("DETALK_EMAIL") || "";
     _id_s("detalk_input_link").value = localStorage.getItem("DETALK_LINK") || "";
+
+
+    if (document.querySelector(options.el + " .inline-input").clientWidth >= 540) {
+        document.querySelector(options.el + " .inline-input").classList.add("input-oneline");
+    } else {
+        document.querySelector(options.el + " .inline-input").classList.remove("input-oneline");
+    }
+
+    window.addEventListener("resize", function () {
+        if (document.querySelector(DETALK_INIT.el + " .inline-input").clientWidth >= 540) {
+            document.querySelector(DETALK_INIT.el + " .inline-input").classList.add("input-oneline");
+        } else {
+            document.querySelector(DETALK_INIT.el + " .inline-input").classList.remove("input-oneline");
+        }
+    });
     return true;
 }
 
