@@ -19,7 +19,8 @@ export default async function login() {
         data = JSON.parse(data);
         if (data.data == "detalk") {
             let token = data.token;
-            console.log(data)
+            console.log(data);
+            if (data.admin) localStorage.setItem("DETALK_IS_ADMIN", true);
             localStorage.setItem("DETALK_AUTH", token);
             _id_s("detalk-login-iframe").remove();
             fetch(DETALK_INIT.url + "/_api/profile?token="+token, {
