@@ -7,7 +7,7 @@ import _delete from './src/delete.js';
 import preview from './src/preview.js';
 // import { parse } from 'marked';
 import parse from './src/lib/parse.js';
-
+import pkg from "./package.json";
 window.detalk = {
     init,
     send,
@@ -17,4 +17,5 @@ window.detalk = {
     delete: _delete,
     preview,
     parse,
+    version: pkg.version
 };

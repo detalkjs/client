@@ -25,6 +25,7 @@ export default async function init(options = {}) {
     DETALK_INIT.url = url;
 
     el.innerHTML = comment;
+    document.getElementById("detalk-version").innerText = window.detalk.version;
     el.classList.add('detalk-container');
 
     // get comment list
