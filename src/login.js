@@ -9,7 +9,7 @@ export default async function login() {
     //     _id_s("detalk-warn").innerText = "请在登录窗口中继续";
     // }
     // _id_s("_detalk_detail").appendChild(ele);
-    loginWindow = window.open(
+    window.open(
         "https://detalk-dash.netlify.app/login.html?url=" + encodeURIComponent(DETALK_INIT.url) + "&framelogin=true",
         '_blank',
         `width=600,height=600,scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no`
