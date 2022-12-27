@@ -1,18 +1,19 @@
 import _id_s from "./lib/dom";
 import md5 from 'js-md5';
 export default async function login() {
-    if (_id_s("detalk-login-iframe")) {
-        _id_s("detalk-login-iframe").remove();
-    } else {
-        _id_s("detalk-warn").innerText = "加载登录窗口...";
-        let ele = document.createElement("iframe");
-        ele.src = "https://detalk-dash.netlify.app/login.html?url=" + encodeURIComponent(DETALK_INIT.url) + "&framelogin=true";
-        ele.id = "detalk-login-iframe";
-        ele.onload = function () {
-            _id_s("detalk-warn").innerText = "请在登录窗口中继续";
-        }
-        _id_s("_detalk_detail").appendChild(ele);
-    }
+    // _id_s("detalk-warn").innerText = "加载登录窗口...";
+    // let ele = document.createElement("iframe");
+    // ele.src = "https://detalk-dash.netlify.app/login.html?url=" + encodeURIComponent(DETALK_INIT.url) + "&framelogin=true";
+    // ele.id = "detalk-login-iframe";
+    // ele.onload = function () {
+    //     _id_s("detalk-warn").innerText = "请在登录窗口中继续";
+    // }
+    // _id_s("_detalk_detail").appendChild(ele);
+    loginWindow = window.open(
+        "https://detalk-dash.netlify.app/login.html?url=" + encodeURIComponent(DETALK_INIT.url) + "&framelogin=true",
+        '_blank',
+        `width=600,height=600,scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no`
+    );
     window.addEventListener('message', function (e) {
         _id_s("detalk-warn").innerText = "登录成功, 获取用户信息...";
         let { data } = e;
@@ -22,7 +23,6 @@ export default async function login() {
             console.log(data);
             if (data.admin) localStorage.setItem("DETALK_IS_ADMIN", true);
             localStorage.setItem("DETALK_AUTH", token);
-            _id_s("detalk-login-iframe").remove();
             fetch(DETALK_INIT.url + "/_api/profile?token="+token, {
                 method: "GET",
             }).then(res => res.json()).then(res => {
