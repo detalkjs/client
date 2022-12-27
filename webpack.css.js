@@ -13,7 +13,7 @@ module.exports = {
             type: 'asset/resource',
             use: ['postcss-loader'],
             generator: {
-                filename: 'detalk.css'
+                filename: 'detalk-[name].css'
             }
         }]
     }
