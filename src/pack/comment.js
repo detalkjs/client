@@ -27,7 +27,7 @@ export default `
             <p class="word-limit" style="color: rgb(255,70,0);"><span id="detalk-warn"></span></p>
             <p class="word-limit"><span id="_detalk_word_limit">0</span> / 500</p>
         </div>
-        <button class="sec-btn cm-btn" id="_detalk_preview" onclick="detalk.login();">登录</button>
+        <button class="sec-btn cm-btn" id="_detalk_login" onclick="detalk.login();">登录</button>
         <button class="sec-btn cm-btn" id="_detalk_preview" onclick="detalk.preview();">预览</button>
         <button onclick="detalk.send();" class="fst-btn cm-btn disabled" id="_detalk_submit" disabled>发送</button>
     </div>
