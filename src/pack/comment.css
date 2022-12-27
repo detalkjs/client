@@ -208,9 +208,12 @@
 }
 
 .detalk-container .mr-cmt .cmt-main .cmt-content {
-    margin-top: 0.3rem;
+    margin-top: 1.2rem;
 	opacity: 0.8;
 }
+/* .detalk-container .mr-cmt .cmt-main .cmt-content * {
+    display: inline;
+} */
 
 .detalk-container .comment-container._detalk_loading_container {
     display: flex;

@@ -30,6 +30,8 @@ export default async function load(url, path, mode = 1, pageID = 0, pageSize = 1
         _id_s("_detalk_detail").classList.add("_detalk_loading_container");
     }
     
+    if (mode != window.DETALK_LOAD_TYPE) window.DETALK_LOADED_LIST = [];
+
     let loadType = "";
     if (mode) loadType = "true";
     let listr = await fetch(url+"/_api/comment?id="+path+"&pageid="+pageID+"&pagesize="+pageSize+"&timefst="+loadType, {
@@ -93,4 +95,5 @@ export default async function load(url, path, mode = 1, pageID = 0, pageSize = 1
     if (DETALK_INIT.onCommentLoaded) {
         DETALK_INIT.onCommentLoaded();
     }
+    window.DETALK_LOAD_TYPE = mode;
 }
