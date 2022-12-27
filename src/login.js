@@ -1,12 +1,12 @@
 import _id_s from "./lib/dom";
 import md5 from 'js-md5';
 export default async function login() {
-    // _id_s("detalk-warn").innerText = "加载登录窗口...";
+    _id_s("detalk-warn").innerText = "加载登录窗口...";
     // let ele = document.createElement("iframe");
     // ele.src = "https://detalk-dash.netlify.app/login.html?url=" + encodeURIComponent(DETALK_INIT.url) + "&framelogin=true";
     // ele.id = "detalk-login-iframe";
     // ele.onload = function () {
-    //     _id_s("detalk-warn").innerText = "请在登录窗口中继续";
+    _id_s("detalk-warn").innerText = "请在登录窗口中继续";
     // }
     // _id_s("_detalk_detail").appendChild(ele);
     window.open(
