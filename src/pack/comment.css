@@ -129,6 +129,7 @@
     opacity: 0.7;
     font-size: 0.9rem;
     margin-right: 0.4rem;
+	display: inline-flex;
 }
 .detalk-container .action-btn-group .action-btn .fst-btn.disabled {
 	color: rgba(255, 255, 255, 0.8);
@@ -211,11 +212,24 @@
 	opacity: 0.8;
 }
 
-.comment-container._detalk_loading_container {
+.detalk-container .comment-container._detalk_loading_container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 45px;
+}
+
+.detalk-container .comment-container {
+	position: relative;
+}
+
+#detalk-login-iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99;
+	height: 100%;
 }
 
 .detalk-container .filter {

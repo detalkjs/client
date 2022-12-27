@@ -6,6 +6,7 @@ import oninput from './src/oninput.js';
 import _delete from './src/delete.js';
 import preview from './src/preview.js';
 // import { parse } from 'marked';
+import login from './src/login.js';
 import parse from './src/lib/parse.js';
 import pkg from "./package.json";
 window.detalk = {
@@ -16,6 +17,7 @@ window.detalk = {
     oninput,
     delete: _delete,
     preview,
+    login,
     parse,
     version: pkg.version
 };
