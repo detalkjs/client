@@ -4,7 +4,10 @@ import load from './load.js';
 import getUUID from './lib/getUUID.js';
 import _id_s from './lib/dom.js';
 import md5 from 'js-md5';
-export default async function init(options = {}) {
+export default async function init(options) {
+    if (typeof options == 'string') {
+        init(await fetch(options).then(res => res.json()));
+    }
     // init detalk
     if (!options.url) {
         throw new Error('Backend URL is required!');
