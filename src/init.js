@@ -1,5 +1,6 @@
 import comment from './pack/comment.js';
 import './pack/comment.css';
+import './pack/label.css';
 import load from './load.js';
 import getUUID from './lib/getUUID.js';
 import _id_s from './lib/dom.js';
