@@ -30,6 +30,7 @@ export default async function login() {
             }).then(res => res.json()).then(res => {
                 if (res.success) {
                     _id_s("detalk-warn").innerText = "登录成功";
+                    if (!res.nickname && !res.email && !res.link) { return false }
                     _id_s("detalk_input_nickname").value = res.nickname;
                     _id_s("detalk_input_email").value = res.email;
                     _id_s("detalk_input_link").value = res.link;
