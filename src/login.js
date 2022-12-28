@@ -10,7 +10,7 @@ export default async function login() {
     // }
     // _id_s("_detalk_detail").appendChild(ele);
     let github = "";
-    if (DETALK_INIT.login.github) github = "&github=" + DETALK_INIT.login.github;
+    if (DETALK_INIT.login && DETALK_INIT.login.github) github = "&github=" + DETALK_INIT.login.github;
     window.open(
         "https://detalk-dash.netlify.app/login.html?url=" + encodeURIComponent(DETALK_INIT.url) + "&framelogin=true" + github,
         '_blank',
