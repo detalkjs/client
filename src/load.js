@@ -2,7 +2,6 @@ import gen_detail from './pack/detail.js';
 import _id_s from './lib/dom.js';
 // mode = 1: 倒序; mode = 0: 正序.
 export default async function load(url, path, mode = 1, pageID = 0, pageSize = 10) {
-    
     let page = "";
     if (pageID > 0) {
         page = _id_s("_detalk_detail").innerHTML;
@@ -30,7 +29,7 @@ export default async function load(url, path, mode = 1, pageID = 0, pageSize = 1
         _id_s("_detalk_detail").classList.add("_detalk_loading_container");
     }
     
-    if (mode != window.DETALK_LOAD_TYPE) window.DETALK_LOADED_LIST = [];
+    if (mode != window.DETALK_LOAD_TYPE || pageID == 0) window.DETALK_LOADED_LIST = [];
 
     let loadType = "";
     if (mode) loadType = "true";
@@ -76,6 +75,7 @@ export default async function load(url, path, mode = 1, pageID = 0, pageSize = 1
     // }
 
     count = listr.length;
+
 
     if (pageID == 0) {
         _id_s("_detalk_detail").innerHTML = gen_detail(count, render_list, {mode,url,path});
