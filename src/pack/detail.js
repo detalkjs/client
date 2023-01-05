@@ -12,11 +12,11 @@ export default function gen_detail(count, list, options, noindex) {
     let list_content = "";
     for (let i in list) {
         let reply_content = "";
-
+        if (list[i].hide) continue;
         if (list[i] && list[i].replies) {
             reply_content += "<hr/>";
             for (let j of list[i].replies) {
-                if (!j.deleted) {
+                if (!j.deleted && !j.hide) {
                     let deletBtn = "";
                     if (inarray(JSON.parse(localStorage.getItem("DETALK_CAN_DELETE") || "[]"), j.rpid, true)) {
                         deletBtn = `<span class="hover_show" onclick="detalk.delete('${j.rpid}')">删除</span>`;

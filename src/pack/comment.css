@@ -342,8 +342,8 @@
 	margin-right: 1%;
 }
 .detalk-container .load-more {
-	padding: 8px 10px 10px 10px;
-    width: 5rem;
+	padding: 20px;
+    width: auto;
     margin: 20px auto;
     cursor: pointer;
     /* text-align: center; */
