@@ -1,12 +1,12 @@
 import _id_s from "./lib/dom";
 import md5 from 'js-md5';
 export default async function login() {
-    _id_s("detalk-warn").innerText = "加载登录窗口...";
+    _id_s("detalk-warn").innerText = window.DETALK_I18N.loadingLoginFrame;
     // let ele = document.createElement("iframe");
     // ele.src = "https://detalk-dash.netlify.app/login.html?url=" + encodeURIComponent(DETALK_INIT.url) + "&framelogin=true";
     // ele.id = "detalk-login-iframe";
     // ele.onload = function () {
-    _id_s("detalk-warn").innerText = "请在登录窗口中继续";
+    _id_s("detalk-warn").innerText = window.DETALK_I18N.gotoLoginFrame;
     // }
     // _id_s("_detalk_detail").appendChild(ele);
     let github = "";
@@ -17,7 +17,7 @@ export default async function login() {
         `width=600,height=600,scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no`
     );
     window.addEventListener('message', function (e) {
-        _id_s("detalk-warn").innerText = "登录成功, 获取用户信息...";
+        _id_s("detalk-warn").innerText = window.DETALK_I18N.waitingInfo;
         let { data } = e;
         data = JSON.parse(data);
         if (data.data == "detalk") {
@@ -29,7 +29,7 @@ export default async function login() {
                 method: "GET",
             }).then(res => res.json()).then(res => {
                 if (res.success) {
-                    _id_s("detalk-warn").innerText = "登录成功";
+                    _id_s("detalk-warn").innerText = window.DETALK_I18N.loginSuccess;
                     if (!res.nickname && !res.email && !res.link) { return false }
                     _id_s("detalk_input_nickname").value = res.nickname;
                     _id_s("detalk_input_email").value = res.email;
@@ -41,7 +41,7 @@ export default async function login() {
                         _id_s("_detalk_myavatar").src = `https://cravatar.cn/avatar/${md5(_id_s("detalk_input_email").value)}?d=mp`;
                     }
                 } else {
-                    _id_s("detalk-warn").innerText = "获取用户信息失败";
+                    _id_s("detalk-warn").innerText = window.DETALK_I18N.failedLoadingInfo;
                 }
             });
         }

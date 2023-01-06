@@ -7,17 +7,17 @@ export default function dayjs(timestamp) {
     let hour = date.getHours();
     let minute = date.getMinutes();
     let second = date.getSeconds();
-
+    let i18n = window.DETALK_I18N.day;
     let now = new Date();
 
     if (now.getMinutes() == minute && now.getHours() == hour && now.getDate() == day && now.getMonth()+1 == month && now.getFullYear() == year) {
-        return "刚刚";
+        return i18n.justNow;
     } else if (now.getHours() == hour  && now.getDate() == day && now.getMonth()+1 == month && now.getFullYear() == year) {
-        return `${now.getMinutes() - minute } 分钟前`;
+        return i18n.minute.replace('[#TIME]', now.getMinutes() - minute);
     } else if (now.getDate() == day && now.getMonth()+1 == month && now.getFullYear() == year) {
-        return `${now.getHours() - hour} 小时前`;
+        return i18n.hour.replace('[#TIME]', now.getHours() - hour);
     } else if (now.getMonth()+1 == month && now.getDate() - day < 14 && now.getFullYear() == year) {
-        return `${now.getDate() - day} 天前`;
+        return i18n.day.replace('[#TIME]', now.getDate() - day);
     } else {
         if (month < 10) {
             month = "0" + month;

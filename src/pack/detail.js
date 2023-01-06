@@ -19,7 +19,7 @@ export default function gen_detail(count, list, options, noindex) {
                 if (!j.deleted && !j.hide) {
                     let deletBtn = "";
                     if (inarray(JSON.parse(localStorage.getItem("DETALK_CAN_DELETE") || "[]"), j.rpid, true)) {
-                        deletBtn = `<span class="hover_show" onclick="detalk.delete('${j.rpid}')">删除</span>`;
+                        deletBtn = `<span class="hover_show" onclick="detalk.delete('${j.rpid}')">${window.DETALK_I18N.delete}</span>`;
                     }
                     let label = "";
                     if (j && j.label && DETALK_INIT.label && DETALK_INIT.label[j.label]) {
@@ -36,7 +36,7 @@ export default function gen_detail(count, list, options, noindex) {
                         <div class="cmt-main" style="display: inline;">
                             <div class="cmt-data">
                                 <span style="margin-right:1rem;"><strong><a href="${j.url || "#"}" target="_blank" style="color: unset;text-decoration:none;">${j.nickname}</a>${label}</strong> · <span class="cmt_date">${dayjs(j.timestamp)}</span></span>
-                                <span class="hover_show" onclick="detalk.reply('${list[i].rpid}', '${j.nickname}')">回复</span>
+                                <span class="hover_show" onclick="detalk.reply('${list[i].rpid}', '${j.nickname}')">${window.DETALK_I18N.reply}</span>
                                 ${deletBtn}
                             </div>
                             <div class="cmt-content">
@@ -49,7 +49,7 @@ export default function gen_detail(count, list, options, noindex) {
         }
         let deletBtn = "";
         if (list[i] && list[i].rpid && inarray(JSON.parse(localStorage.getItem("DETALK_CAN_DELETE") || "[]"), list[i].rpid, true)) {
-            deletBtn = `<span class="hover_show" onclick="detalk.delete('${list[i].rpid}')">删除</span>`;
+            deletBtn = `<span class="hover_show" onclick="detalk.delete('${list[i].rpid}')">${window.DETALK_I18N.delete}</span>`;
         }
         let label = "";
         if (list[i] && list[i].label && DETALK_INIT.label && DETALK_INIT.label[list[i].label]) {
@@ -59,7 +59,7 @@ export default function gen_detail(count, list, options, noindex) {
         }
         let top = "";
         if (list[i] && list[i].top) {
-            top = `<span class="custom-label label-red" style="margin-left:0;">置顶</span>`;
+            top = `<span class="custom-label label-red" style="margin-left:0;">${window.DETALK_I18N.top}</span>`;
         }
         if (!list[i] || !list[i].email || !list[i].nickname || !list[i].content) continue;
         if (inarray(window.DETALK_LOADED_LIST, list[i].rpid)) continue;
@@ -71,7 +71,7 @@ export default function gen_detail(count, list, options, noindex) {
                 <div class="cmt-main">
                     <div class="cmt-data">
                         <span style="margin-right:1rem;"><strong><a href="${list[i].url || "#"}" target="_blank" style="color: unset;text-decoration:none;">${list[i].nickname}</a>${label}</strong> · <span class="cmt_date">${dayjs(list[i].timestamp)}</span></span>
-                        <span class="hover_show" onclick="detalk.reply('${list[i].rpid}', '${list[i].nickname}')">回复</span>
+                        <span class="hover_show" onclick="detalk.reply('${list[i].rpid}', '${list[i].nickname}')">${window.DETALK_I18N.reply}</span>
                         ${deletBtn}
                     </div>
                     <div class="cmt-content">
@@ -86,10 +86,10 @@ export default function gen_detail(count, list, options, noindex) {
         window.DETALK_LOADED_LIST.push(list[i].rpid);
     }
     if (list == []) {
-        list_content = `<h3 style="text-align: center;opacity: 0.8;">暂无评论</h3>`;
+        list_content = `<h3 style="text-align: center;opacity: 0.8;">${window.DETALK_I18N.noComment}</h3>`;
     }
     let IndexContent = `<div class="comment-title">
-        <h3>共 ${count} 条评论<span class="filter" onclick="detalk.load('${options.url}','${options.path}',${options.mode ? 0 : 1});">${options.mode ? "正序" : "倒序"}</span></h3>
+        <h3>${window.DETALK_I18N.total.replace('[#TOTAL]', count)}<span class="filter" onclick="detalk.load('${options.url}','${options.path}',${options.mode ? 0 : 1});">${options.mode ? window.DETALK_I18N.up : window.DETALK_I18N.down}</span></h3>
     </div>`;
     if (noindex) {
         IndexContent = "";

@@ -27,7 +27,40 @@
         href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"></script>
     <script>
-        detalk.parse = marked.parse
+        detalk.parse = marked.parse;
+        // window.DETALK_I18N = {
+        //     loadMore: 'Load More',
+        //     notAllowedInput: 'The input doesn\'t meet the requirements!',
+        //     send: 'Send',
+        //     preview: 'Preview',
+        //     reply: 'Reply',
+        //     replyTo: 'Reply to',
+        //     cancel: 'Cancel',
+        //     loadingLoginFrame: 'Login Frame is loading...',
+        //     gotoLoginFrame: 'Please continue in the login frame',
+        //     waitingInfo: 'Login successful, getting user info...',
+        //     loginSuccess: 'Login successful.',
+        //     failedLoadingInfo: 'Failed to get user info.',
+        //     deleteConfirm: 'Comment with ID:[#ID] will be deleted, continue?',
+        //     total: '[#TOTAL] total comments',
+        //     noComment: 'No comments.',
+        //     up: 'Positive order',
+        //     down: 'Reverse order',
+        //     delete: 'Delete',
+        //     top: 'Top',
+        //     login: 'Login',
+        //     required: 'Required',
+        //     optional: 'Optional',
+        //     nickname: 'Nickname',
+        //     email: 'Email',
+        //     link: 'Link',
+        //     day: {
+        //         justNow: 'Just now',
+        //         minute: '[#TIME] minutes ago',
+        //         hour: '[#TIME] hours ago',
+        //         day: '[#TIME] days ago'
+        //     }
+        // }
         detalk.init({
             url: "https://detalk.deta.dev/",
             el: "#detalk",

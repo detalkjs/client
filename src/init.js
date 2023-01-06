@@ -6,6 +6,41 @@ import getUUID from './lib/getUUID.js';
 import _id_s from './lib/dom.js';
 import md5 from 'js-md5';
 export default async function init(options) {
+    if (!window.DETALK_I18N) {
+        window.DETALK_I18N = {
+            loadMore: '加载更多',
+            notAllowedInput: '输入内容不符合要求！',
+            send: '发送',
+            preview: '预览',
+            reply: '回复',
+            replyTo: '回复',
+            cancel: '取消',
+            loadingLoginFrame: '登录窗口加载中...',
+            gotoLoginFrame: '请在登录窗口中继续',
+            waitingInfo: '登录成功，正在获取用户信息...',
+            loginSuccess: '登录成功',
+            failedLoadingInfo: '获取用户信息失败',
+            deleteConfirm: '即将删除 ID:[#ID] 评论，是否继续？',
+            total: '共 [#TOTAL] 条评论',
+            noComment: '暂无评论',
+            up: '正序',
+            down: '倒序',
+            delete: '删除',
+            top: '置顶',
+            login: '登录',
+            required: '必填',
+            optional: '选填',
+            nickname: '昵称',
+            email: '邮箱',
+            link: '网址',
+            day: {
+                justNow: '刚刚',
+                minute: '[#TIME] 分钟前',
+                hour: '[#TIME] 小时前',
+                day: '[#TIME] 天前'
+            }
+        }
+    }
     if (typeof options == 'string') {
         init(await fetch(options).then(res => res.json()));
     }
@@ -27,9 +62,17 @@ export default async function init(options) {
 
     window.DETALK_INIT = options;
     DETALK_INIT.url = url;
+    
 
     el.innerHTML = comment;
-    document.getElementById("detalk-version").innerText = window.detalk.version;
+    _id_s("detalk-version").innerText = window.detalk.version;
+    _id_s('detalk-nickname').innerText = window.DETALK_I18N.nickname;
+    _id_s('detalk-email').innerText = window.DETALK_I18N.email;
+    _id_s('detalk-link').innerText = window.DETALK_I18N.link;
+    _id_s('_detalk_login').innerText = window.DETALK_I18N.login;
+    _id_s('_detalk_preview').innerText = window.DETALK_I18N.preview;
+    _id_s('_detalk_submit').innerText = window.DETALK_I18N.send;
+
     el.classList.add('detalk-container');
 
     // get comment list
@@ -62,6 +105,7 @@ export default async function init(options) {
             document.querySelector(DETALK_INIT.el + " .inline-input").classList.remove("input-oneline");
         }
     });
+
     return true;
 }
 

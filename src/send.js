@@ -16,7 +16,7 @@ export default async function send(options, rpid) {
     let link = _id_s("detalk_input_link").value;
     let content = _id_s("detalk_input_content").value;
     if (!nickname || !email || !content || nickname.length >= 15 || content.length >= 500 || email.length >= 50 || link.length >= 100 || (link && !link.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/) && !link.startsWith("#ReplyTo:")) || !email.match(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/)) {
-        alert("输入内容不符合要求");
+        alert(window.DETALK_I18N.notAllowedInput);
         return false;
     }
 
@@ -59,8 +59,8 @@ export default async function send(options, rpid) {
     if (rpid && resp.success) {
         _id_s("detalk_input_content").value = "";
         _id_s("_detalk_submit").setAttribute("onclick", `detalk.send(null)`);
-        _id_s("_detalk_submit").innerText = "发送";
-        _id_s("_detalk_preview").innerText = "预览";
+        _id_s("_detalk_submit").innerText = window.DETALK_I18N.send;
+        _id_s("_detalk_preview").innerText = window.DETALK_I18N.preview;
         _id_s("_detalk_preview").setAttribute("onclick", `detalk.preview()`);
     }
 }

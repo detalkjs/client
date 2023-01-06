@@ -24,7 +24,7 @@
 	border: 1px solid red!important;
 }
 .detalk-container .input-data .input-area input {
-	width: 65%;
+	width: 62%;
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 	height: 32px;
@@ -44,7 +44,7 @@
 	outline: 0;
 	padding: 0 15px;
 	transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-	width: 100%;
+	/* width: 100%; */
     font-family: monospace;
 }
 
@@ -311,7 +311,7 @@
     margin-bottom: 0.5rem;
 }
 .detalk-container .input-label label {
-	width: 35%;
+	width: 38%;
     display: flex;
     justify-content: center;
     align-items: center;
