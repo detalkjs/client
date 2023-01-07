@@ -4,12 +4,14 @@ import './pack/label.css';
 import load from './load.js';
 import getUUID from './lib/getUUID.js';
 import _id_s from './lib/dom.js';
+import recaptcha from './lib/recaptcha.js';
 import md5 from 'js-md5';
 export default async function init(options) {
     if (!window.DETALK_I18N) {
         window.DETALK_I18N = {
             loadMore: '加载更多',
             notAllowedInput: '输入内容不符合要求！',
+            recaptcha_not_ready: 'reCAPTCHA 验证加载中，请稍后。',
             send: '发送',
             preview: '预览',
             reply: '回复',
@@ -61,7 +63,14 @@ export default async function init(options) {
     }
 
     window.DETALK_INIT = options;
-    DETALK_INIT.url = url;
+    window.DETALK_INIT.url = url;
+
+    if (options.recaptchaSiteKey) {
+        window.DETALK_RECAPTCHA_SITE_KEY = options.recaptchaSiteKey;
+        recaptcha(options.recaptchaSiteKey);
+    }
+
+    
     
 
     el.innerHTML = comment;

@@ -19,6 +19,10 @@ export default async function send(options, rpid) {
         alert(window.DETALK_I18N.notAllowedInput);
         return false;
     }
+    if (options.recaptchaSiteKey && !window.DETALK_RECAPTCHA_TOKEN) {
+        alert(window.DETALK_I18N.recaptcha_not_ready);
+        return false;
+    }
 
     localStorage.setItem("DETALK_NICKNAME", nickname);
     localStorage.setItem("DETALK_EMAIL", email);
@@ -40,6 +44,7 @@ export default async function send(options, rpid) {
             replyTo: rpid || null,
             content,
             auth,
+            recaptcha: window.DETALK_RECAPTCHA_TOKEN,
         })
     }).then(res => res.json());
 
@@ -48,8 +53,14 @@ export default async function send(options, rpid) {
         let canDelete = JSON.parse(localStorage.getItem("DETALK_CAN_DELETE") || "[]");
         canDelete.push(resp.rpid);
         localStorage.setItem("DETALK_CAN_DELETE", JSON.stringify(canDelete));
+        if (options.recaptchaSiteKey) {
+            detalk.recaptcha(options.recaptchaSiteKey, true);
+        }
     } else {
-        alert(resp.message);
+        if (resp.error == 'reCAPTCHA Error.' && options.recaptchaSiteKey) {
+            detalk.recaptcha(options.recaptchaSiteKey, true);
+        }
+        alert(resp.error);
     }
 
     _id_s("_detalk_submit").disabled = false;
