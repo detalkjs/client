@@ -31,7 +31,7 @@ export default function gen_detail(count, list, options, noindex) {
                     reply_content += `
                     <div class="reply">
                         <div class="avatar">
-                            <img src="${"https://cravatar.cn/avatar/"+list[i].email+"?d=mp" || "https://cravatar.cn/avatar/?d=mp"}" class="avatar-img">
+                            <img src="${"https://cravatar.cn/avatar/"+j.email+"?d=mp" || "https://cravatar.cn/avatar/?d=mp"}" class="avatar-img">
                         </div>
                         <div class="cmt-main" style="display: inline;">
                             <div class="cmt-data">
