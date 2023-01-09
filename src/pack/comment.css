@@ -274,6 +274,9 @@
 .detalk-container .cmt-content h1 {
 	font-size: 1.8rem;
 }
+.detalk-container .cmt-content img, iframe, pre, video, audio {
+	max-width: 100%;
+}
 
 .detalk-container .cmt-content blockquote {
 	padding: 0 1em;
