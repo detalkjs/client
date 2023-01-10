@@ -6,6 +6,8 @@ import getUUID from './lib/getUUID.js';
 import _id_s from './lib/dom.js';
 import recaptcha from './lib/recaptcha.js';
 import md5 from 'js-md5';
+import OwO from 'owo';
+import './pack/owo.css';
 export default async function init(options) {
     if (!window.DETALK_I18N) {
         window.DETALK_I18N = {
@@ -92,6 +94,18 @@ export default async function init(options) {
     // get comment list
 
     load(url, path);
+
+    if (options.owo) {
+        new OwO({
+            logo: 'OωO',
+            container: document.getElementById("detalk_owo"),
+            target: document.getElementById("detalk_input_content"),
+            api: options.owo,
+            position: 'down',
+            width: '100%',
+            maxHeight: '250px'
+        });
+    }
 
 
     if (!localStorage.getItem("DETALK_AUTH")) {

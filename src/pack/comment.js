@@ -24,6 +24,7 @@ export default `
 <div class="action-btn-group" id="detalk_input_btn_area">
     <div class="action-btn">
         <div style="text-align: end;">
+            <div id="detalk_owo" class="OwO" style="color: black;margin-top: 10px;"></div>
             <p class="word-limit" style="color: rgb(255,70,0);"><span id="detalk-warn"></span></p>
             <p class="word-limit"><span id="_detalk_word_limit">0</span> / 500</p>
         </div>
