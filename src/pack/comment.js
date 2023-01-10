@@ -1,5 +1,5 @@
 export default `
-<div class="input-data">
+<div class="input-data" id="detalk_input_data_area">
     <div class="avatar">
         <img src="https://cravatar.cn/avatar/?d=mp" class="avatar-img" id="_detalk_myavatar">
     </div>
@@ -21,7 +21,7 @@ export default `
         <div class="comment-text content-preview cmt-content" id="detalk_content_preview"></div>
     </div>
 </div>
-<div class="action-btn-group">
+<div class="action-btn-group" id="detalk_input_btn_area">
     <div class="action-btn">
         <div style="text-align: end;">
             <p class="word-limit" style="color: rgb(255,70,0);"><span id="detalk-warn"></span></p>

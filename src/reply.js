@@ -2,6 +2,17 @@ import _id_s from './lib/dom.js';
 export default async function reply(rpid, replyTo) {
     if (!rpid) return false;
     location.hash = "#detalk_input_content";
+    if (_id_s('detalk_input_btn_area').style.display == 'none') {
+        _id_s('detalk_input_btn_area').style.display = 'flex';
+    }
+    if (_id_s('detalk_input_data_area').style.display == 'none') {
+        _id_s('detalk_input_data_area').style.display = 'flex';
+    }
+    if (document.querySelector(DETALK_INIT.el + " .inline-input").clientWidth >= 540) {
+        document.querySelector(DETALK_INIT.el + " .inline-input").classList.add("input-oneline");
+    } else {
+        document.querySelector(DETALK_INIT.el + " .inline-input").classList.remove("input-oneline");
+    }
     _id_s("detalk_input_content").value = window.DETALK_I18N.replyTo + ` @${replyTo}: `;
     _id_s("detalk_input_content").focus();
     _id_s("detalk_input_link").value = `#ReplyTo:${rpid}`;

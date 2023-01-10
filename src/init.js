@@ -84,6 +84,11 @@ export default async function init(options) {
 
     el.classList.add('detalk-container');
 
+    if (path == '@TALK' && !localStorage.getItem("DETALK_IS_ADMIN")) {
+        _id_s('detalk_input_data_area').style.display = 'none';
+        _id_s('detalk_input_btn_area').style.display = 'none';
+    }
+
     // get comment list
 
     load(url, path);

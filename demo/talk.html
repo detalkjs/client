@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1e1e1e;
+                color: #fff;
+            }
+        }
+        body {
+            transition: all .3s;
+        }
+    </style>
+</head>
+<body style="max-width: 800px; margin: 30px auto;padding: 3px 30px;">
+    <button onclick="light();">Light</button>
+    <button onclick="dark();">Dark</button>
+    <div style="margin-top: 30px;" id="detalk"></div>
+    <script src="../dev/detalk.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@4/marked.min.js"></script>
+    <link rel="stylesheet"
+        href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"></script>
+    <script>
+        detalk.parse = marked.parse;
+        detalk.init({
+            url: "https://detalk.deta.dev/",
+            el: "#detalk",
+            path: "@TALK",
+            previewOnInput: true,
+            onCommentLoaded: function () {
+                document.querySelectorAll('#detalk pre code').forEach((el) => {
+                    hljs.highlightElement(el);
+                });
+            },
+            label: {
+                'admin': {
+                    name: '管理员',
+                    class: 'label-green',
+                }
+            },
+            login: {
+                github: '8cce104300dc1617f5b7'
+            },
+            recaptchaSiteKey: '6LefUdojAAAAAHe0G0p0MaW5U93AnH_G5QViDl92',
+            recaptchaLoaded: false,
+        });
+        function light() {
+            document.body.style.backgroundColor = "#fff";
+            document.body.style.color = "#000";
+        }
+        function dark() {
+            document.body.style.backgroundColor = "#1e1e1e";
+            document.body.style.color = "#fff";
+        }
+    </script>
+</body>
+</html>
