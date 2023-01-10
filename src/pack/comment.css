@@ -215,6 +215,10 @@
     display: inline;
 } */
 
+.detalk-container .comment-title h3 {
+	font-size: 1.25rem;
+	user-select: none;
+}
 .detalk-container .comment-container._detalk_loading_container {
     display: flex;
     justify-content: center;
