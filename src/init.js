@@ -60,8 +60,9 @@ export default async function init(options) {
     if (!el) {
         throw new Error('Element is required!');
     }
-    if (!path) {
+    if (!path && !options.path) {
         path = window.DETALK_PATH || window.location.pathname;
+        options.path = window.DETALK_PATH || window.location.pathname;
     }
 
     window.DETALK_INIT = options;
