@@ -56,6 +56,8 @@ export default async function send(options, rpid) {
         if (options.recaptchaSiteKey) {
             detalk.recaptcha(options.recaptchaSiteKey, true);
         }
+        // 清除输入框内容
+        _id_s("detalk_input_content").value = "";
     } else {
         if (resp.error == 'reCAPTCHA Error.' && options.recaptchaSiteKey) {
             detalk.recaptcha(options.recaptchaSiteKey, true);
