@@ -114,7 +114,7 @@ export default async function init(options) {
     }
 
     if (options.pasteImage) {
-        _id_s('detalk_input_content').addEventListener('paste', function (e) {
+        _id_s('detalk_input_content').addEventListener('paste', async function (e) {
             var cbd = e.clipboardData;
             var ua = window.navigator.userAgent;
             if (!(e.clipboardData && e.clipboardData.items)) {
