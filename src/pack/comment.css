@@ -310,6 +310,7 @@
 	padding: 0;
 }
 .detalk-container {
+	max-width: 100%;
 	transition: all .3s;
 }
 .detalk-container .input-label {
@@ -336,6 +337,7 @@
 	padding: 0 10px;
 	border-radius: 4px;
 	display: none;
+	word-break: break-all;
 }
 
 .detalk-container .input-oneline {
