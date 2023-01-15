@@ -19,5 +19,5 @@ export default async function reply(rpid, replyTo) {
     _id_s("_detalk_submit").setAttribute("onclick", `detalk.send(null, '${rpid}')`);
     _id_s("_detalk_submit").innerText = window.DETALK_I18N.reply;
     _id_s("_detalk_preview").innerText = window.DETALK_I18N.cancel;
-    _id_s("_detalk_preview").setAttribute("onclick", `document.getElementById("detalk_input_link").value="";document.getElementById("_detalk_submit").innerText="发送";document.getElementById("_detalk_preview").innerText="预览";document.getElementById("_detalk_preview").setAttribute("onclick", "detalk.preview()");document.getElementById("_detalk_submit").setAttribute("onclick", "detalk.send()");`);
+    _id_s("_detalk_preview").setAttribute("onclick", `document.getElementById("detalk_input_link").value="";document.getElementById("_detalk_submit").innerText=window.DETALK_I18N.send;document.getElementById("_detalk_preview").innerText=window.DETALK_I18N.preview;document.getElementById("_detalk_preview").setAttribute("onclick", "detalk.preview()");document.getElementById("_detalk_submit").setAttribute("onclick", "detalk.send()");`);
 }
