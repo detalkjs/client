@@ -140,9 +140,9 @@ export default async function init(options) {
                     var blob = item.getAsFile();
                     if (blob.size == 0) return;
                     let idk = Math.round(Math.random() * 100000);
-                    _id_s('detalk_input_content').value += `![](#Uploading...${idk})`;
+                    _id_s('detalk_input_content').value += `![](#Uploading...#${idk})`;
                     let link = await options.pasteImage(blob);
-                    _id_s('detalk_input_content').value = _id_s('detalk_input_content').value.replace(`#Uploading...${idk}`, link);
+                    _id_s('detalk_input_content').value = _id_s('detalk_input_content').value.replace(`#Uploading...#${idk}`, link);
                 }
             }
         });
