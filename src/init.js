@@ -113,6 +113,40 @@ export default async function init(options) {
         });
     }
 
+    if (options.pasteImage) {
+        _id_s('detalk_input_content').addEventListener('paste', function (e) {
+            var cbd = e.clipboardData;
+            var ua = window.navigator.userAgent;
+            if (!(e.clipboardData && e.clipboardData.items)) {
+                return;
+            }
+            if (
+                cbd.items &&
+                cbd.items.length === 2 &&
+                cbd.items[0].kind === "string" &&
+                cbd.items[1].kind === "file" &&
+                cbd.types &&
+                cbd.types.length === 2 &&
+                cbd.types[0] === "text/plain" &&
+                cbd.types[1] === "Files" &&
+                ua.match(/Macintosh/i) &&
+                Number(ua.match(/Chrome\/(\d{2})/i)[1]) < 49
+            ) {
+                return;
+            }
+            for (var i = 0; i < cbd.items.length; i++) {
+                var item = cbd.items[i];
+                if (item.kind == 'file') {
+                    var blob = item.getAsFile();
+                    if (blob.size == 0) return;
+                    let idk = Math.round(Math.random() * 100000);
+                    _id_s('detalk_input_content').value += `![](#Uploading...${idk})`;
+                    let link = await options.pasteImage(blob);
+                    _id_s('detalk_input_content').value = _id_s('detalk_input_content').value.replace(`#Uploading...${idk}`, link);
+                }
+            }
+        });
+    }
 
     if (!localStorage.getItem("DETALK_AUTH")) {
         localStorage.setItem("DETALK_AUTH", getUUID());
