@@ -12,7 +12,7 @@ export default async function login() {
     let github = "";
     if (DETALK_INIT.login && DETALK_INIT.login.github) github = "&github=" + DETALK_INIT.login.github;
     window.open(
-        "https://detalk-dash.netlify.app/login.html?url=" + encodeURIComponent(DETALK_INIT.url) + "&framelogin=true" + github,
+        window.DETALK_INIT.DASHBOARD_URL + "/login.html?url=" + encodeURIComponent(DETALK_INIT.url) + "&framelogin=true" + github,
         '_blank',
         `width=600,height=600,scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no`
     );

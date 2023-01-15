@@ -64,6 +64,11 @@ export default async function init(options) {
         path = window.DETALK_PATH || window.location.pathname;
         options.path = window.DETALK_PATH || window.location.pathname;
     }
+    if (!options.DASHBOARD_URL) {
+        options.DASHBOARD_URL = 'https://detalk-dash.netlify.app';
+    } else {
+        options.DASHBOARD_URL = new URL(options.DASHBOARD_URL).origin;
+    }
 
     window.DETALK_INIT = options;
     window.DETALK_INIT.url = url;
