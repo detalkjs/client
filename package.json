@@ -1,7 +1,7 @@
 {
   "name": "@detalk/static",
-  "version": "1.4.0",
-  "description": "The fastest way to use detalk on your website.",
+  "version": "2.0.0-alpha.2",
+  "description": "The fastest way to add Detalk (Based on Deta) to your website. | 将 Detalk (Based on Deta) 加入你的网站。",
   "main": "dist/detalk.js",
   "scripts": {
     "dev": "webpack --config webpack.dev.js --mode=development --watch",
