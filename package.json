@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "autoprefixer": "^10.4.13",
-    "cssnano": "^5.1.14",
+    "cssnano": "^6.0.0",
     "dayjs": "^1.11.7",
     "html-webpack-plugin": "^5.5.0",
     "js-md5": "^0.7.3",
