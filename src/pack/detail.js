@@ -20,36 +20,38 @@ export default function gen_detail(count, list, options, noindex) {
             for (let j of list[i].replies) {
                 try {
                     if (j.hide) continue;
+
+                    if (!j.deleted) {
+                        let deletBtn = "";
+                        if (inarray(JSON.parse(localStorage.getItem("DETALK_CAN_DELETE") || "[]"), j.rpid, true)) {
+                            deletBtn = `<span class="hover_show" onclick="detalk.delete('${j.rpid}')">${window.DETALK_I18N.delete}</span>`;
+                        }
+                        let label = "";
+                        if (j && j.label && DETALK_INIT.label && DETALK_INIT.label[j.label]) {
+                            if (!DETALK_INIT.label[j.label].class) DETALK_INIT.label[j.label].class = "label-green";
+                            if (!DETALK_INIT.label[j.label].name) DETALK_INIT.label[j.label].name = "";
+                            label = `<span class="custom-label ${DETALK_INIT.label[j.label].class}">${DETALK_INIT.label[j.label].name}</span>`;
+                        }
+                        if (!j || !j.email || !j.nickname || !j.content) continue;
+                        reply_content += `
+                        <div class="reply">
+                            <div class="avatar">
+                                <img src="${"https://cravatar.cn/avatar/"+j.email+"?d=mp" || "https://cravatar.cn/avatar/?d=mp"}" class="avatar-img">
+                            </div>
+                            <div class="cmt-main" style="display: inline;">
+                                <div class="cmt-data">
+                                    <span style="margin-right:1rem;"><strong><a href="${j.url || "#"}" target="_blank" style="color: unset;text-decoration:none;">${j.nickname}</a>${label}</strong> · <span class="cmt_date">${dayjs(j.timestamp)}</span></span>
+                                    <span class="hover_show" onclick="detalk.reply('${list[i].rpid}', '${j.nickname}')">${window.DETALK_I18N.reply}</span>
+                                    ${deletBtn}
+                                </div>
+                                <div class="cmt-content">
+                                    ${j.content}
+                                </div>
+                            </div>
+                        </div>`;
+                    }
                 } catch(e) {}
-                if (!j.deleted) {
-                    let deletBtn = "";
-                    if (inarray(JSON.parse(localStorage.getItem("DETALK_CAN_DELETE") || "[]"), j.rpid, true)) {
-                        deletBtn = `<span class="hover_show" onclick="detalk.delete('${j.rpid}')">${window.DETALK_I18N.delete}</span>`;
-                    }
-                    let label = "";
-                    if (j && j.label && DETALK_INIT.label && DETALK_INIT.label[j.label]) {
-                        if (!DETALK_INIT.label[j.label].class) DETALK_INIT.label[j.label].class = "label-green";
-                        if (!DETALK_INIT.label[j.label].name) DETALK_INIT.label[j.label].name = "";
-                        label = `<span class="custom-label ${DETALK_INIT.label[j.label].class}">${DETALK_INIT.label[j.label].name}</span>`;
-                    }
-                    if (!j || !j.email || !j.nickname || !j.content) continue;
-                    reply_content += `
-                    <div class="reply">
-                        <div class="avatar">
-                            <img src="${"https://cravatar.cn/avatar/"+j.email+"?d=mp" || "https://cravatar.cn/avatar/?d=mp"}" class="avatar-img">
-                        </div>
-                        <div class="cmt-main" style="display: inline;">
-                            <div class="cmt-data">
-                                <span style="margin-right:1rem;"><strong><a href="${j.url || "#"}" target="_blank" style="color: unset;text-decoration:none;">${j.nickname}</a>${label}</strong> · <span class="cmt_date">${dayjs(j.timestamp)}</span></span>
-                                <span class="hover_show" onclick="detalk.reply('${list[i].rpid}', '${j.nickname}')">${window.DETALK_I18N.reply}</span>
-                                ${deletBtn}
-                            </div>
-                            <div class="cmt-content">
-                                ${j.content}
-                            </div>
-                        </div>
-                    </div>`;
-                }
+                
             }
         }
         let deletBtn = "";
