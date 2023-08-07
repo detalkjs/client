@@ -17,7 +17,7 @@
     "dayjs": "^1.11.7",
     "html-webpack-plugin": "^5.5.0",
     "js-md5": "^0.7.3",
-    "marked": "^4.2.5",
+    "marked": "^7.0.0",
     "owo": "^1.0.2",
     "postcss": "^8.4.20",
     "postcss-loader": "^7.0.2",
